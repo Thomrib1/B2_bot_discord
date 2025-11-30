@@ -9,7 +9,7 @@ class Etapes:
 # Genre ici la question à poser, les différents alternatives possibles (oui/on) + le resultat
 
 def create_profiles():
-    
+
     return {
         'A': Etapes(result="Profil A : Penseur Stable --> Tes choix sont logiques, prudent tu restes méthodique"),
         'B': Etapes(result="Profil B : Analyste Explorateur --> Curieux sur tout les aspects, aucun secret n'existe pour toi"),
@@ -20,3 +20,17 @@ def create_profiles():
         'G': Etapes(result="Profil G : Diplomate Fuyant --> Tu recherches l'equilibre parfait pour éviter les tensions"),
         'H': Etapes(result="Profil H : Volontaire Direct --> La vérité est un principe, affirmé va droit au but")
     }   
+
+def build_tree():
+
+    profiles = create_profiles()
+    branch_1 = build_branch_1(profiles)
+    branch_2 = build_branch_2(profiles)
+    
+    racine = Etapes(
+        question="Es-tu plutôt quelqu'un qui réfléchit avant d'agir ?",
+        left=branch_1,
+        right=branch_2
+    )
+    
+    return racine
