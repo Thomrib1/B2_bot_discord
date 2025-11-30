@@ -19,7 +19,53 @@ def create_profiles():
         'F': Etapes(result="Profil F : Aventurier Calme --> spontané mais posé, adaptable"),
         'G': Etapes(result="Profil G : Diplomate Fuyant --> Tu recherches l'equilibre parfait pour éviter les tensions"),
         'H': Etapes(result="Profil H : Volontaire Direct --> La vérité est un principe, affirmé va droit au but")
-    }   
+    }
+
+
+def build_branch_1(profiles):
+
+    q4 = Etapes(
+        question="Préfères-tu la stabilité plutôt que le changement ?",
+        left=profiles['A'],
+        right=profiles['B']
+    )
+    
+    q5 = Etapes(
+        question="Te sens-tu facilement envahi par tes émotions ?",
+        left=profiles['C'],
+        right=profiles['D']
+    )
+    
+    q2 = Etapes(
+        question="Tu bases-tu tes choix surtout sur la logique ?",
+        left=q4,
+        right=q5
+    )
+    
+    return q2
+
+def build_branch_2(profiles):
+
+    q6 = Etapes(
+        question="Les émotions fortes te motivent-elles ?",
+        left=profiles['E'],
+        right=profiles['F']
+    )
+    
+    q7 = Etapes(
+        question="As-tu tendance à éviter les conflits ou les décisions difficiles ?",
+        left=profiles['G'],
+        right=profiles['H']
+    )
+    
+    q3 = Etapes(
+        question="Tu suis plutôt ton instinct dans les situations nouvelles ?",
+        left=q6,
+        right=q7
+    )
+    
+    return q3
+
 
 def build_tree():
 
@@ -34,3 +80,7 @@ def build_tree():
     )
     
     return racine
+
+
+# mes 3 fonctions du dessus pour la strcture de mon arbre avec 2 chemins différents puis 4 autres chemins
+# 2x4 donc 8 possiblités finales
