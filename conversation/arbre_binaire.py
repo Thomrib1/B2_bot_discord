@@ -125,3 +125,15 @@ class ConversationManager:
     
     def reset(self, user_id):
         return self.start_conversation(user_id)
+
+    def speak_about(self, topic):
+        return self._search(self.tree, topic.lower())
+    
+    def _search(self, node, topic):
+        if not node:
+            return False
+        if node.question and topic in node.question.lower():
+            return True
+        if node.result and topic in node.result.lower():
+            return True
+        return self._search(node.left, topic) or self._search(node.right, topic)
