@@ -109,6 +109,28 @@ async def cmd_speak(interaction: discord.Interaction, sujet: str):
     else:
         await interaction.response.send_message("Non, je ne parle pas de ce sujet.")
 
+@bot.tree.command(name="profil", description="Affiche ta carte d'identité Discord")
+async def cmd_profil(interaction: discord.Interaction):
+    add_to_history(interaction.user.id, "/profil")
+    
+    user = interaction.user
+    
+    embed = discord.Embed(
+        title=f"Profil de {user.name}",
+        description="Voici tes informations publiques",
+        color=discord.Color.blue()
+    )
+    embed.add_field(name="ID Utilisateur", value=user.id, inline=False)
+    embed.add_field(name="Compte créé le", value=user.created_at.strftime("%d/%m/%Y"), inline=True)
+    
+    if user.joined_at:
+        embed.add_field(name="Rejoint le", value=user.joined_at.strftime("%d/%m/%Y"), inline=True)
+    
+    if user.avatar:
+        embed.set_thumbnail(url=user.avatar.url)
+    
+    await interaction.response.send_message(embed=embed)
+
 @bot.command()
 async def sync(ctx):
     try:

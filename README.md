@@ -15,6 +15,9 @@
 
 Le bot propose plusieurs fonctionnalités basées sur des structures de données algorithmiques :
 
+*   **/help** : Affiche la liste de toutes les commandes disponibles.
+    > ![Commande Help](screenshots/help.png)
+
 ### 🧠 1. Test de Personnalité (Arbre Binaire)
 
 *   **/test** : Lance le parcours de l'arbre. Le bot pose une série de questions auxquelles l'utilisateur répond par "oui" ou "non".
@@ -50,8 +53,8 @@ Le bot propose plusieurs fonctionnalités basées sur des structures de données
 *   **/qi** : Un algorithme pour calculer votre QI.
     > ![Commande QI](screenshots/qi.png)
 
-*   **/help** : Affiche la liste de toutes les commandes disponibles.
-    > ![Commande Help](screenshots/help.png)
+*   **/profil** : Affiche toutes les informations de son profil
+    > ![Commande Help](screenshots/profil.png)
 
 *   **Interaction "bonjour"** : Le bot détecte le mot "bonjour" dans le chat et répond.
     > ![Interaction Bonjour](screenshots/bonjour.png)
